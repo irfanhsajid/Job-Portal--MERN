@@ -19,7 +19,9 @@ app.use(express.json())
 
 app.use(cookieParser())
 
-app.use(express.urlencoded({extended: false}))
+/* `app.use(express.urlencoded({extended: false}))` is a middleware function in Express that parses
+incoming requests with URL-encoded payloads. */
+app.use(express.urlencoded({extended: false})) 
 
 /* `app.use('/', require('./routes/authRoutes'));` is setting up a middleware function in the Express
 application. */

@@ -28,7 +28,7 @@ const Navbar = () => {
                  <Link style={linkStyle} to='/login'> Login </Link>
                  <Link  style={linkStyle} to='/register'> Register</Link>
                  {
-                  user && (  <Link  style={linkStyle} to='/dashboard'> Logged in as :  @{user.name} </Link>)
+                  user && (  <Link  style={linkStyle} to='/dashboard'> Dashboard {` : @  ${user.name}`} </Link>)
                  }
                  
             </nav>

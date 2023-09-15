@@ -1,9 +1,9 @@
 
 import axios from 'axios';
 import { useState } from 'react';
+
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
 import styles from './login.module.css';
 
 const Login = () => {
@@ -21,19 +21,21 @@ const Login = () => {
          //destructuring data 
          const {email,password} = data
          try {
-            const {data} = await axios.post('/login',{
+            const response = await axios.post('/login',{
                 email,
                 password,
             })
 
-            //setting up the validation and error message
-            if(data.error){
-                toast.error(data.error);
+            console.log(response);
+
+            // //setting up the validation and error message
+            if(response.status!== 200){
+                toast.error("Something went wrong");
             }
             //if everything works fine
             else{
                
-                console.log(data._id); 
+                console.log(response.data.user._id, '<<<<'); 
                 //console.log(data.token); //undefined
 
                 setData({});
@@ -41,6 +43,7 @@ const Login = () => {
                navigate('/dashboard')
                 console.log("login success")
             }
+
          } catch (error) {
             console.log(error)
          }

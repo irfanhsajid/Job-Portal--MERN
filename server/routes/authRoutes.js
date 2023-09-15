@@ -25,3 +25,4 @@ router.get('/profile', getProfile);
 router.post('/logout', logoutUser);
 module.exports = router;
 
+

@@ -5,32 +5,36 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { UserContextProvider } from './context/userContext'
 import Dashboard from './pages/Dashboard'
+import JobPortal from './pages/JobPortal'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/home'
+import PrivateRoutes from './utils/PrivateRoutes'
 
-axios.defaults.baseURL ='http://localhost:5000'; 
+//cors policy setup
+axios.defaults.baseURL = 'http://localhost:5000';
 axios.defaults.withCredentials = true;
+
 function App() {
- 
+
 
   return (
-  <>
-    <UserContextProvider>
-     <Navbar/>
-     <Toaster position='bottom-right'n toastOptions={{duration:2000}}/>
-     <Routes>
-     {/* <Route element={<PrivateRoutes/>}>
-     
-      </Route>  */}
-      <Route path='/' element= {<Home/>} />
-      <Route path ='/login' element ={<Login/>} />
-      <Route path='/register' element ={<Register/>}/> 
-      <Route path='/dashboard' element ={<Dashboard/>}/>
-     </Routes>
-     </UserContextProvider>
+    <>
+      <UserContextProvider>
+        <Navbar />
+        <Toaster position='top-right' n toastOptions={{ duration: 2000 }} />
+        <Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/jobportal' element={<JobPortal />} />
+          </Route>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </UserContextProvider>
     </>
   )
 }
 
-export default App
+export default App;

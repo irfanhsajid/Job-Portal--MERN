@@ -1,19 +1,12 @@
-// import { useContext } from "react";
-// import { Navigate, Outlet } from "react-router-dom";
-// import { UserContext } from "../context/userContext";
 
-// const PrivateRoutes = () => {
-//   const { user, isLoading } = useContext(UserContext);
+// import { useEffect, useState } from "react";
+import { Navigate, Outlet } from "react-router-dom";
+import { getCookie } from "./cookies";
 
-//   // Check if the user is authenticated based on the presence of the user object
-//   const isAuthenticated = user && user.email;
+const PrivateRoutes = () => {
 
-//   if (isLoading) {
-//     // Return a loading indicator or component while data is being fetched
-//     return <div>Loading...</div>;
-//   }
+    const token = getCookie("token");
+    return token ? <Outlet /> : <Navigate to="/login" />;
+};
 
-//   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
-// };
-
-// export default PrivateRoutes;
+export default PrivateRoutes;

@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const test = (req,res)=>{
     res.send("Server test is succeed!");
-}
+} 
+
 //register Endpoint
 const registerUser = async (req, res) => {
     try {
@@ -59,6 +60,7 @@ const registerUser = async (req, res) => {
   const loginUser = async (req, res) => {
    try {
     const {email,password}=req.body;
+    console.log(email);
    //check if user exists
    const user = await User.findOne({email});
    if(!user){
@@ -80,9 +82,10 @@ const registerUser = async (req, res) => {
          {}, //third parameter
          (err,token)=>{ 
           if(err) throw err;
-          else res.cookie('token',token).json(user) //4th parameter
+          else res.cookie('token',token).json({user,token}) //4th parameter
         })
     }
+
     //if not matched
     else return res.json({
         error:'Password not Matched'
@@ -113,6 +116,7 @@ const registerUser = async (req, res) => {
       message:'Logout Successfully!'
     })
   }
+
 module.exports = {
     test,
     registerUser,

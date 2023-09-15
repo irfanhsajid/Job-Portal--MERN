@@ -1,0 +1,19 @@
+Questions : 
+   
+    * payloads mane ki ?
+
+    * bcrypt 
+
+    * jwt token setup 
+
+    * useRef diye basically ki kori ?
+
+    * useState value kokhon null, kokhon { }, kokhon [ ] korte hoy ? 
+
+    * useEffect er vetor last e [ ] er vetor data  dile ki hoy ?
+
+    * useContext diye ki kora hoy ? 
+
+    * AuthProvider Function niye details, kivabe implement kora lage easy way te!
+
+    *  network tab er moddhe request headers , response headers
