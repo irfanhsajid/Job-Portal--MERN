@@ -5,10 +5,10 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { UserContextProvider } from './context/userContext'
 import Dashboard from './pages/Dashboard'
+import Home from './pages/Home'
 import JobPortal from './pages/JobPortal'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Home from './pages/home'
 import PrivateRoutes from './utils/PrivateRoutes'
 
 //cors policy setup
