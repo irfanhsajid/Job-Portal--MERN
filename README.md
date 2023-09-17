@@ -35,7 +35,7 @@
 //cors policy setup
 axios.defaults.baseURL='https://auth-skeleton-api.vercel.app';
 axios.defaults.withCredentials = true;
-
+```
 5. Now go to server side code and make cors origin : " ",
 ```js
 router.use(
