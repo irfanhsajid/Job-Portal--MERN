@@ -31,10 +31,10 @@
 
 4. * go to client side (React app) 
    * open app.jsx code and update your cors origin with the server-side vercel api (copied URL ) like this 
-   ```js 
-   //cors policy setup
-    axios.defaults.baseURL='https://auth-skeleton-api.vercel.app';
-    axios.defaults.withCredentials = true;
+```js 
+//cors policy setup
+axios.defaults.baseURL='https://auth-skeleton-api.vercel.app';
+axios.defaults.withCredentials = true;
 
 5. Now go to server side code and make cors origin : " ",
 ```js
