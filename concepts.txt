@@ -1,4 +1,4 @@
-Questions : 
+ Questions : 
    
     * payloads mane ki ?
 
@@ -16,4 +16,16 @@ Questions :
 
     * AuthProvider Function niye details, kivabe implement kora lage easy way te!
 
-    *  network tab er moddhe request headers , response headers
+    *  network tab er moddhe request headers , response headers 
+
+
+*Ractjs Billion Dollar Mistake: (useEffect infinite loop issue)
+
+1. useEffect er vetor [] na dile seta infinite time loop colte thake
+
+2. useEffect er vetor [state] dile setar [setState] jodi vetorei call kora hoy tahole state update hobar sathe sathe noton kore abar useEffect render houya shuru hoy and etao infinite loop toiri kore. 
+
+3. finally jodi state ta only ekbar e render korate cai tahole [] set korte hobe and eta one by one increment hobe. 
+
+
+

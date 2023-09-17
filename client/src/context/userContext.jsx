@@ -1,42 +1,42 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 export const UserContext = createContext({})
 
 // eslint-disable-next-line react/prop-types
-export function UserContextProvider({children}){
-    const [user,setUser]= useState(null); //no user initially as if no one logged in
+export function UserContextProvider({ children }) {
+  const [user, setUser] = useState(null); //no user initially as if no one logged in
 
- /* The `useEffect` hook is used to perform side effects in a functional component. In this case, the
- `useEffect` hook is used to fetch user data from the server when the component mounts or when the
- `user` state changes. */
-    useEffect(() => {
-        if (!user) {
-          console.log('Fetching user data...');
-          axios.get('/profile')
-            .then(({ data }) => {
-              console.log('User data retrieved:', data);
-              setUser(data);
-            })
-            .catch((error) => {
-              console.error('Error fetching user data:', error);
-            });
-        }
-      }, [user]);
-      
-     // Function to log the user out
+  useEffect(() => {
+    if (!user) {
+      console.log('Fetching user data...');
+      axios.get('/profile')
+        .then(({ data }) => {
+          console.log('User data retrieved:', data);
+          setUser(data);
+          //console.log(user);
+        })
+        .catch((error) => {
+          console.error('Error fetching user data:', error);
+        });
+    }
+  }, [user]);
+
+  // Function to log the user out
   const logout = async () => {
     try {
       await axios.post('/logout');
       // Clear the user data in the context or state immediately after logout
       setUser(null);
+      toast.success("logout Successful!")
     } catch (error) {
       console.error('Logout failed:', error);
     }
   };
-    return (
-        <UserContext.Provider value={{user,setUser,logout}}>
-            {children}
-        </UserContext.Provider>
-    )
+  return (
+    <UserContext.Provider value={{ user, setUser, logout }}>
+      {children}
+    </UserContext.Provider>
+  )
 }
