@@ -117,10 +117,24 @@ const logoutUser = async (req, res) => {
   })
 }
 
+//get all users data 
+
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find(); // Use await to make it asynchronous
+    res.send(users);
+    console.log(users);
+  } catch (error) {
+    res.status(500).send(error.message); // Handle errors appropriately
+  }
+}
+
+
 module.exports = {
   test,
   registerUser,
   loginUser,
   getProfile,
   logoutUser,
+  getUsers,
 }
