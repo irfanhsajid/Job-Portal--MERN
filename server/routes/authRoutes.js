@@ -14,7 +14,7 @@ const { test, registerUser, loginUser, getProfile, logoutUser, getUsers } = requ
 router.use(
     cors({
         credentials: true,
-        origin: " ",
+        origin: "https://auth-skeleton-frontend.vercel.app",
     })
 )
 
