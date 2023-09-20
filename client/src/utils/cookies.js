@@ -1,9 +1,9 @@
-const oneYearInSeconds = 365 * 24 * 60 * 60; // Calculate the number of seconds in a year
-setCookie("myCookie", "myValue", oneYearInSeconds);
+//const oneYearInSeconds = 365 * 24 * 60 * 60; // Calculate the number of seconds in a year
+//setCookie("myCookie", "myValue", oneYearInSeconds);
 
 export function setCookie(cname, cvalue, exdays) {
     const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + (exdays * 365 * 24 * 60 * 60 * 1000)); //updated for 1 year
     let expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
