@@ -12,7 +12,7 @@ import Register from './pages/Register'
 import PrivateRoutes from './utils/PrivateRoutes'
 
 //cors policy setup
-axios.defaults.baseURL = 'https://auth-skeleton-api.vercel.app';
+axios.defaults.baseURL = 'http://localhost:5000';
 axios.defaults.withCredentials = true;
 
 function App() {
