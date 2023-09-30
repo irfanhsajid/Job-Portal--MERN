@@ -4,6 +4,12 @@ export function setCookie(cname, cvalue, exdays) {
     let expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+export function deleteCookie(cname) {
+    const d = new Date();
+    d.setTime(d.getTime() + (0));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + "" + ";" + expires + ";path=/";
+}
 
 export function getCookie(cname) {
     let name = cname + "=";

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { getCookie } from '../utils/cookies';
+import { deleteCookie, getCookie } from '../utils/cookies';
 
 export const UserContext = createContext({})
 
@@ -41,6 +41,7 @@ export function UserContextProvider({ children }) {
       await axios.post('/logout');
       // Clear the user data in the context or state immediately after logout
       setUser(null);
+      deleteCookie("token")
       toast.success("logout Successful!")
     } catch (error) {
       console.error('Logout failed:', error);
