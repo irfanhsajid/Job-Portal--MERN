@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { getCookie } from '../utils/cookies';
 
 export const UserContext = createContext({})
 
@@ -9,19 +10,25 @@ export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null); //no user initially as if no one logged in
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
+  const profileDataRetrive = async (token) => {
+    console.log('Fetching user data...', token);
+
+    await axios.get('/profile' + "?token=" + token)
+      .then((response) => {
+        console.log('User data retrieved:', response.data); //null
+        response.data && setUser(response.data);
+        response.data && setIsLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+        setIsLoading(false)
+      });
+  }
   useEffect(() => {
     if (!user) {
-      console.log('Fetching user data...');
-      axios.get('/profile')
-        .then(({ data }) => {
-          console.log('User data retrieved:', data); //null
-          setIsLoading(false)
-          setUser(data);
-        })
-        .catch((error) => {
-          console.error('Error fetching user data:', error);
-          setIsLoading(false)
-        });
+      const token = getCookie("token");
+      console.log(token)
+      token ? profileDataRetrive(token) : null;
     }
   }, [user]);
 

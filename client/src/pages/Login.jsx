@@ -1,14 +1,16 @@
 
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/userContext';
 import styles from './login.module.css';
 
 const Login = () => {
     //navigate after successful login
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext);
 
     const [data, setData] = useState({
         email: '',
@@ -39,6 +41,7 @@ const Login = () => {
                 setData({});
                 Cookies.set('token', response.data.token, { expires: 1000 })
                 //   console.log(response.data.token);
+                setUser(response.data.user);
                 navigate('/dashboard')
                 toast.success("Login Successful!")
                 // console.log("login success")
