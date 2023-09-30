@@ -6,6 +6,7 @@ import { getCookie } from "./cookies";
 const PrivateRoutes = () => {
 
     const token = getCookie("token");
+
     return token ? <Outlet /> : <Navigate to="/login" />;
 };
 

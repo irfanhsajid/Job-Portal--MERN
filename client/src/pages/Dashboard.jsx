@@ -46,7 +46,7 @@ const Dashboard = () => {
     <div>
       <h1>Assalamu Alaikum *,*</h1>
       <br />
-      {user && (<h4>{user.name}</h4>)}
+      {user && (<h4>{user?.name}</h4>)}
       <Link to='/jobportal'><button style={buttonStyle}>Job Portal</button></Link>
 
       <button style={buttonStyle} onClick={handleLogout}>Logout</button>

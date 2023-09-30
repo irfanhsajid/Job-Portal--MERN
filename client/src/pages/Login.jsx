@@ -25,7 +25,7 @@ const Login = () => {
                 email,
                 password,
             })
-            console.log(response);
+            //  console.log(response);
             // console.log(response.data.token);
 
             //setting up the validation and error message
@@ -37,8 +37,8 @@ const Login = () => {
                 //console.log(response.data.user._id, '<<<<'); 
                 //console.log(data.token); //
                 setData({});
-                Cookies.set('token', response.data.token, { expires: 10 })
-                console.log(response.data.token);
+                Cookies.set('token', response.data.token, { expires: 1000 })
+                //   console.log(response.data.token);
                 navigate('/dashboard')
                 toast.success("Login Successful!")
                 // console.log("login success")
