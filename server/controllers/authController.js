@@ -100,6 +100,9 @@ const loginUser = async (req, res) => {
 //get profile info for client side session controlling
 const getProfile = async (req, res) => {
   const { token } = req.cookies
+  // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbWlsQGdtYWlsLmNvbSIsImlkIjoiNjUwMzU3MWUxMjJjZDMyYjg2OWEzNTZjIiwibmFtZSI6Ik1hbXVuIiwiaWF0IjoxNjk2MDc2MzUyfQ.VBU-g2E5NGqIY7Gj6g-8aApCg3OUM6ZfkD7PGqfC3_E"
+  console.log(req.cookies)
+  console.log(token)
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
       if (err) throw err;
