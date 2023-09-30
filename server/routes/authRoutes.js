@@ -14,8 +14,8 @@ const { test, registerUser, loginUser, getProfile, logoutUser, getUsers } = requ
 router.use(
     cors({
         credentials: true,
-        origin: "https://mern-job-portal.netlify.app",
-        // origin: "http://localhost:5173",
+        // origin: "https://mern-job-portal.netlify.app",
+        origin: "http://localhost:5173",
     })
 )
 

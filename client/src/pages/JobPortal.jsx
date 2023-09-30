@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
 const JobPortal = () => {
-    const user = useContext(UserContext);
+    // const user = useContext(UserContext);
+    const { user } = useContext(UserContext);
     //const token = getCookie('token');
     console.log(user);
     if (!user) {
