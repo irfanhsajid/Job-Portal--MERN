@@ -55,6 +55,7 @@ const Login = () => {
 
     return (
         <div className={styles.container}>
+            <h1 style={{ textAlign: 'center' }}>Login to Acess Your Job Portal</h1>
             <form action="
             " className={styles.form} onSubmit={loginUser}>
                 <label>Email:</label>

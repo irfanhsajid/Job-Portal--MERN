@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: false }))
 /* `app.use('/', require('./routes/authRoutes'));` is setting up a middleware function in the Express
 application. */
 app.use('/', require('./routes/authRoutes'));
+app.use('/', require('./routes/jobRoutes'));
 
 
 const port = 7000;

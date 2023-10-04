@@ -1,13 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import axios from 'axios';
 import { useContext, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 
 
 const Dashboard = () => {
-  const { user, logout, setUser } = useContext(UserContext)
-  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext)
+
   useEffect(() => {
     // Fetch user profile data when the component mounts
     const fetchUserProfile = async () => {
@@ -19,7 +20,6 @@ const Dashboard = () => {
         console.error('Error fetching user profile:', error);
       }
     };
-
     // Call the function to fetch user profile
     if (!user) {
       fetchUserProfile();
@@ -27,29 +27,28 @@ const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  const handleLogout = async () => {
-    logout();
-    navigate('/');
-  }
+
   const buttonStyle = {
-    backgroundColor: 'tomato',
+    color: 'black',
+    // backgroundColor: '#182F59',
     padding: '15px 30px',
     borderRadius: '10px',
-    width: '150px',
+    width: '200px',
     fontWeight: 'bold',
     cursor: 'pointer',
     marginRight: '10px'
-
   }
 
   return (
-    <div>
-      <h1>Assalamu Alaikum *,*</h1>
-      <br />
-      {user && (<h4>{user?.name}</h4>)}
-      <Link to='/jobportal'><button style={buttonStyle}>Job Portal</button></Link>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
 
-      <button style={buttonStyle} onClick={handleLogout}>Logout</button>
+      {user && (<h1>Assalamu Alaikum *,* <br />  <span style={{ color: '#5BBC2E', fontSize: '20px' }}> {user?.name} </span>  </h1>)}
+
+      <h3>Welcome to TechForing's Job Portal! </h3>
+
+      <Link to='/viewjobs'><button style={{ ...buttonStyle, background: '#00C1FF' }}> View Jobs</button></Link>
+      <Link to='/createjobs'><button style={{ ...buttonStyle, background: '#3AF173' }}>Create Jobs</button></Link>
+      <Link to='/managejobs'><button style={{ ...buttonStyle, background: '#D935FF' }} >Edit Jobs</button></Link>
     </div>
   );
 };

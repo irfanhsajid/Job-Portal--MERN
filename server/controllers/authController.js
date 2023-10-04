@@ -33,7 +33,6 @@ const registerUser = async (req, res) => {
         error: 'Email is already used!'
       });
     }
-
     const hashedPassword = await hashPassword(password);
     // Create a user in the database
     console.log("Hashed Password", hashedPassword);
@@ -51,12 +50,13 @@ const registerUser = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-
     // Handle any errors here and send an error response
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 };
-//login endpoint
+// Register Endpoint Ends 
+
+//login endpoint Starts
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -73,10 +73,6 @@ const loginUser = async (req, res) => {
     const match = await comparePassword(password, user.password)
 
     if (match) {
-      //return res.json('Password Matched')
-      /**
-       * ?json web token setup here
-       */
       jwt.sign({ email: user.email, id: user._id, name: user.name }, //first parameter
         process.env.JWT_SECRET, //second parameter
         {}, //third parameter
@@ -119,7 +115,6 @@ const logoutUser = async (req, res) => {
 }
 
 //get all users data 
-
 const getUsers = async (req, res) => {
   try {
     const users = await User.find(); // Use await to make it asynchronous

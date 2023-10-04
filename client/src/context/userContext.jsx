@@ -8,6 +8,7 @@ export const UserContext = createContext({})
 // eslint-disable-next-line react/prop-types
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null); //no user initially as if no one logged in
+
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
   const profileDataRetrive = async (token) => {
@@ -15,7 +16,7 @@ export function UserContextProvider({ children }) {
 
     await axios.get('/profile' + "?token=" + token)
       .then((response) => {
-        console.log('User data retrieved:', response.data); //null
+        console.log('User data retrieved:', response.data);
         response.data && setUser(response.data);
         response.data && setIsLoading(false)
       })

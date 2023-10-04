@@ -11,15 +11,15 @@
      /* justify-content: center; */
      align-items: flex-start;
      padding: 25px;
-     background-color: #c4c4f4;
-     margin-top: 100px;
+     background-color: #182F59;
+     margin-top: 55px;
      border-radius: 20px;
      box-shadow: 2px 10px 20px 2px lightgray; 
  }
  .form label{
     margin-left: 10px;
     font-size: 15px;
-    color: hwb(249 4% 91%);
+    color: aliceblue;
     
  }
  .form input,button{
@@ -39,8 +39,8 @@
  }
  
  .form button:hover{
-     background-color: black;
-     color: #6c6ced;
+    background-color: #5BBC2E;
+    color: white;
      cursor: pointer;
  }
  @media  (max-width:880px) {
