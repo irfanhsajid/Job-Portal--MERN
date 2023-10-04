@@ -10,7 +10,8 @@ const { jobtest, createJobs, viewJobs, deleteJobs, updateJob, getJob } = require
 router.use(
     cors({
         credentials: true,
-        origin: "http://localhost:5173",
+        // origin: "http://localhost:5173",
+        origin: "https://mern-job-portal.netlify.app",
     })
 )
 
