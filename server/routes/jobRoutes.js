@@ -11,7 +11,7 @@ router.use(
     cors({
         credentials: true,
         // origin: "http://localhost:5173",
-        origin: "https://mern-job-portal.netlify.app",
+        origin: "https://mern-job-portal.netlify.app"
     })
 )
 
