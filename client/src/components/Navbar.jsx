@@ -18,7 +18,6 @@ const Navbar = () => {
     backgroundColor: '#182F59',
     padding: '20px',
     alignItems: 'center',
-    fontFamily: 'Poppins, sans-serif'
   };
   const buttonStyle = {
     color: 'whitesmoke',

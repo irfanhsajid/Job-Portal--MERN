@@ -27,17 +27,15 @@ const Login = () => {
                 email,
                 password,
             })
-            //  console.log(response);
+            //console.log(response);
             // console.log(response.data.token);
 
             //setting up the validation and error message
             if (!response.data.token) {
-                toast.error("Emaill Password Not Matched!");
+                toast.error(response.data.error);
             }
             //if everything works fine
             else {
-                //console.log(response.data.user._id, '<<<<'); 
-                //console.log(data.token); //
                 setData({});
                 Cookies.set('token', response.data.token, { expires: 1000 })
                 //   console.log(response.data.token);

@@ -19,9 +19,9 @@ const registerUser = async (req, res) => {
     }
 
     // Check if password is good
-    if (!password || password.length < 6) {
+    if (!password || password.length < 5) {
       return res.json({
-        error: 'Password is required and should be at least 6 characters long'
+        error: 'Password is required and should be at least 5 characters'
       });
     }
 
@@ -96,7 +96,7 @@ const loginUser = async (req, res) => {
 //get profile info for client side session controlling
 const getProfile = async (req, res) => {
   const token = req.query.token;
-  console.log(req.query, "<---")
+  //console.log(req.query, "<---")
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
       if (err) throw err;
