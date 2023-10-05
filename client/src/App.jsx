@@ -23,7 +23,7 @@ function App() {
     <>
       <UserContextProvider>
         <Navbar />
-        <Toaster position='top-right' n toastOptions={{ duration: 2000 }} />
+        <Toaster position='top-center' n toastOptions={{ duration: 2000 }} />
         <Routes>
           <Route element={<PrivateRoutes />}>
             <Route path='/dashboard' element={<Dashboard />} />
