@@ -62,7 +62,6 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    // console.log(email);
     //check if user exists
     const user = await User.findOne({ email });
     if (!user) {
@@ -80,8 +79,7 @@ const loginUser = async (req, res) => {
         {}, //third parameter
         (err, token) => {
           if (err) throw err;
-          else res.cookie('token', token).json({ user, token }) //4th parameter
-          console.log(token);
+          else res.cookie('token', token).json({ user, token })
         })
     }
 
@@ -97,12 +95,12 @@ const loginUser = async (req, res) => {
 
 
 //get profile info for client side session controlling
-const getProfile = async (req, res) => {
-  const token = req.cookies.token;
-  console.log(token, "\n <---From Back");
+const getProfile = (req, res) => {
+  const token = req.query.token;
+  console.log(token, "<---From Back");
   try {
     if (token) {
-      const user = await jwt.verify(token, process.env.JWT_SECRET);
+      const user = jwt.verify(token, process.env.JWT_SECRET);
       res.json({ user, token })
       console.log({ user, token });
     } else {
