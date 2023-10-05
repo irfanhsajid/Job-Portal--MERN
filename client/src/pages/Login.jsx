@@ -10,7 +10,7 @@ import styles from './login.module.css';
 const Login = () => {
 
     const navigate = useNavigate();
-    const { setUser, isLoading } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
 
     const [data, setData] = useState({
@@ -52,9 +52,9 @@ const Login = () => {
         }
 
     }
-    if (isLoading) {
-        return <div>Loading...</div>
-    }
+    // if (isLoading) {
+    //     return <div>Loading...</div>
+    // }
 
     return (
         <div className={styles.container}>
