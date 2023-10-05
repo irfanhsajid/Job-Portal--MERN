@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
+import { setCookie } from '../utils/cookies';
 import styles from './login.module.css';
 
 const Login = () => {
@@ -37,7 +38,7 @@ const Login = () => {
             //if everything works fine
             else {
                 setData({});
-                // setCookie('token', response.data.token)
+                setCookie('token', response.data.token)
                 //   console.log(response.data.token);
                 setUser(response.data.user);
                 navigate('/viewJobs')
