@@ -62,20 +62,21 @@ In separate terminal windows, run the following commands:
 
 - The Vite React app will be accessible at `http://localhost:5173`
 - The Express app will be accessible at `http://localhost:7000`
-#### .env Dependecy and CORS issue
-Though it supposed to fine, but he app will not run correctly because of Environment Variables Dependecy and CORS policy. So first of all open your server and make a .env file inside the root directory and set this:
+#### .env Dependency and CORS issue
+Though it is supposed to be fine, but the app will show errors because of Environment Variables Dependency and CORS policy. So first of all, open your server make a .env file inside the root directory, and set this:
 ```js
 MONGO_URL= mongodb+srv://mern-job-portal:447pxlwbgNx2LIY8@cluster0.vaopm.mongodb.net/mern-job-poral?retryWrites=true&w=majority
 JWT_SECRET = 474764dhk944
 ```
-Then, fix the CORS origin issue. And For this: 
+Then, fix the CORS origin issue.
+For this: 
 
-* Open your React app, select App.jsx and change the origin url
+* Open your React app, select App.jsx, and change the origin URL
 ```js
 // axios.defaults.baseURL = 'https://auth-skeleton-api.vercel.app';
 axios.defaults.baseURL = 'http://localhost:7000';
 ```
-* open your express app, select routes folder and set this origin inside the authRoutes.js and jobRoutes.js file
+* Open your express app, select the routes folder, and set this origin inside the authRoutes.js and jobRoutes.js file
 ```js
 router.use(
     cors({
