@@ -63,7 +63,7 @@ In separate terminal windows, run the following commands:
 - The Vite React app will be accessible at `http://localhost:5173`
 - The Express app will be accessible at `http://localhost:7000`
 #### .env Dependency and CORS issue
-Though it is supposed to be fine, but the app will show errors because of Environment Variables Dependency and CORS policy. So first of all, open your server make a .env file inside the root directory, and set this:
+Though it is supposed to be fine, but the app will show errors because of Environment Variables Dependency and CORS policy. So first of all, open your server, make a .env file inside the root directory, and set this:
 ```js
 MONGO_URL= mongodb+srv://mern-job-portal:447pxlwbgNx2LIY8@cluster0.vaopm.mongodb.net/mern-job-poral?retryWrites=true&w=majority
 JWT_SECRET = 474764dhk944
