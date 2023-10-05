@@ -11,8 +11,7 @@ router.use(
     cors({
         credentials: true,
         // origin: "http://localhost:5173",
-        // origin: "https://mern-job-portal.netlify.app",
-        origin: "https://auth-skeleton-frontend.vercel.app",
+        origin: "https://techforing-job-portal.vercel.app",
 
 
     })
