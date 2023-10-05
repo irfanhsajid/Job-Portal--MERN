@@ -16,15 +16,13 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(express.json())
 
 //middlewares for json webtoken
-
 app.use(cookieParser())
 
-/* `app.use(express.urlencoded({extended: false}))` is a middleware function in Express that parses
+/* a middleware that parses
 incoming requests with URL-encoded payloads. */
 app.use(express.urlencoded({ extended: false }))
 
-/* `app.use('/', require('./routes/authRoutes'));` is setting up a middleware function in the Express
-application. */
+
 app.use('/', require('./routes/authRoutes'));
 app.use('/', require('./routes/jobRoutes'));
 

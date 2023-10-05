@@ -1,5 +1,5 @@
 
-// import { useEffect, useState } from "react";
+
 import { Navigate, Outlet } from "react-router-dom";
 import { getCookie } from "./cookies";
 

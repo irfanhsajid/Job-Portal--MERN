@@ -53,7 +53,7 @@ const CreateJob = () => {
                     required="true"
                     onChange={(e) => setData({ ...data, category: e.target.value })}
                 />
-                <label>Set Role 1:</label>
+                <label>Job Title/Role 1:</label>
                 <input
                     type="text"
                     name="role1"
@@ -63,7 +63,7 @@ const CreateJob = () => {
                     required="true"
                     onChange={(e) => setData({ ...data, positions: { ...data.positions, role1: e.target.value } })}
                 />
-                <label>Set Role 2:</label>
+                <label>Job Title/Role 2:</label>
                 <input
                     type="text"
                     name="role2"
@@ -72,40 +72,40 @@ const CreateJob = () => {
                     placeholder="i e : Digital Marketer"
                     onChange={(e) => setData({ ...data, positions: { ...data.positions, role2: e.target.value } })}
                 />
-                <label>Set Role 3:</label>
+                <label>Job Title/Role 3:</label>
                 <input
                     type="text"
                     name="role3"
                     value={data.positions?.role3}
                     id="category"
-                    placeholder="i e : Digital Marketer"
+                    placeholder="i e : Sales Executive Manager"
                     onChange={(e) => setData({ ...data, positions: { ...data.positions, role3: e.target.value } })}
                 />
-                <label>Set Role 4:</label>
+                <label>Job Title/Role 4:</label>
                 <input
                     type="text"
                     name="role4"
                     value={data.positions?.role4}
                     id="category"
-                    placeholder="i e : Digital Marketer"
+                    placeholder="i e : Social Media Marketer"
                     onChange={(e) => setData({ ...data, positions: { ...data.positions, role4: e.target.value } })}
                 />
-                <label>Set Role 5:</label>
+                <label>Job Title/Role 5:</label>
                 <input
                     type="text"
                     name="role5"
                     value={data.positions?.role5}
                     id="category"
-                    placeholder="i e : Digital Marketer"
+                    placeholder="i e : Business Analyst"
                     onChange={(e) => setData({ ...data, positions: { ...data.positions, role5: e.target.value } })}
                 />
-                <label>Set Role 6:</label>
+                <label>Job Title/Role 6:</label>
                 <input
                     type="text"
                     name="role6"
                     value={data.positions?.role6}
                     id="category"
-                    placeholder="i e : Digital Marketer"
+                    placeholder="i e : General Manager"
                     onChange={(e) => setData({ ...data, positions: { ...data.positions, role6: e.target.value } })}
                 />
                 <button type='submit'>Create Job</button>

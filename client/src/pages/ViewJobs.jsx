@@ -1,5 +1,4 @@
 import AddIcon from '@mui/icons-material/Add';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
     Accordion,
     AccordionDetails,
@@ -30,9 +29,7 @@ const JobPortal = () => {
     // console.log(data);
 
     // .........Accordion Logic.......
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [expanded, setExpanded] = useState(false);
-
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };

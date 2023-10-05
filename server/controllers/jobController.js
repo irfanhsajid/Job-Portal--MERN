@@ -3,7 +3,8 @@ const JobsModel = require('../models/job');
 const jobtest = (req, res) => {
     res.send('job category is working');
 }
-//create Jobs
+
+//CREATE Jobs
 const createJobs = async (req, res) => {
     try {
         const { category, positions } = req.body;
@@ -30,7 +31,7 @@ const createJobs = async (req, res) => {
     }
 }
 
-//view  all Jobs 
+// READ all Jobs 
 const viewJobs = async (req, res) => {
     // res.send('View Jobs Route is Working')
     try {
@@ -42,16 +43,16 @@ const viewJobs = async (req, res) => {
     }
 }
 
-
-const deleteJobs = async (req, res) => {
+//DELETE jobs
+const deleteJob = async (req, res) => {
     try {
         const _id = req.params._id;
         const isFound = await JobsModel.findOne({ _id });
         if (!isFound) {
             return res.status(404).send({ message: "No item found!" })
         }
-        const deletejobs = await JobsModel.deleteOne({ _id });
-        if (!deletejobs) {
+        const deleteJob = await JobsModel.deleteOne({ _id });
+        if (!deleteJob) {
             return res.status(404).send({ message: "Failed to delete!" })
         }
         const newJobs = await JobsModel.find({});
@@ -61,7 +62,7 @@ const deleteJobs = async (req, res) => {
     }
 }
 
-//update job functionality
+//UPDATE a job Category 
 const getJob = async (req, res) => {
     const _id = req.params._id;
     try {
@@ -86,42 +87,11 @@ const updateJob = async (req, res) => {
     }
 }
 
-
-// const updateJob = async (req, res) => {
-//     try {
-//         // find id
-//         const _id = req.params._id;
-//         const { category, positions } = req.body;
-//         // find job details
-//         const job = await JobsModel.find({ _id });
-//         if (!job) {
-//             return res.status(404).send({ message: "No item found!" })
-//         }
-
-//         // update
-//         const updateJob = await JobsModel.updateOne({ _id }, { category, positions })
-//         if (!updateJob) {
-//             return res.status(404).send({ message: "Something went wrong while updating!" })
-//         }
-
-//         // get all jobs with updated one
-//         const newJobs = await JobsModel.find({});
-
-//         res.status(200).send({
-//             message: "Update successfully!",
-//             jobs: newJobs
-//         })
-
-//     } catch (error) {
-
-//     }
-// }
-
 module.exports = {
     jobtest,
     createJobs,
     viewJobs,
-    deleteJobs,
+    deleteJob,
     getJob,
     updateJob,
 };

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 
 import axios from 'axios';
 import { useContext, useEffect } from 'react';
@@ -44,7 +43,7 @@ const Dashboard = () => {
 
       {user && (<h1>Assalamu Alaikum *,* <br />  <span style={{ color: '#5BBC2E', fontSize: '20px' }}> {user?.name} </span>  </h1>)}
 
-      <h3>Welcome to TechForing's Job Portal! </h3>
+      <h3>Welcome to TechForing`s Job Portal! </h3>
 
       <Link to='/viewjobs'><button style={{ ...buttonStyle, background: '#00C1FF' }}> View Jobs</button></Link>
       <Link to='/createjobs'><button style={{ ...buttonStyle, background: '#3AF173' }}>Create Jobs</button></Link>

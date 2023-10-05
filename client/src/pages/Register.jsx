@@ -11,16 +11,6 @@ const Register = () => {
         password: '',
     })
 
-    // const handleNameChange=(event)=>{
-    //     setName(event.target.value);
-    // }
-    // const handleEmailChange=(event)=>{
-    //     setEmail(event.target.value);
-    // }
-    //   const handlePasswordChange=(event)=>{
-    //     setPassword(event.target.value);
-    // }
-    //for navigation after successful registration: 
     const navigate = useNavigate();
 
     const registerUser = async (event) => {

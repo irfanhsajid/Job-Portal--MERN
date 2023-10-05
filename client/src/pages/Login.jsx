@@ -8,7 +8,7 @@ import { UserContext } from '../context/userContext';
 import styles from './login.module.css';
 
 const Login = () => {
-    //navigate after successful login
+
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext);
 
@@ -28,12 +28,12 @@ const Login = () => {
                 password,
             })
             //console.log(response);
-            // console.log(response.data.token);
 
             //setting up the validation and error message
             if (!response.data.token) {
                 toast.error(response.data.error);
             }
+
             //if everything works fine
             else {
                 setData({});

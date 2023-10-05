@@ -7,14 +7,14 @@ export const UserContext = createContext({})
 
 // eslint-disable-next-line react/prop-types
 export function UserContextProvider({ children }) {
+
   const [user, setUser] = useState(null); //no user initially as if no one logged in
 
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
+  //get user data profile
   const profileDataRetrive = async (token) => {
-
     // console.log('Fetching user data...', token);
-
     await axios.get('/profile' + "?token=" + token)
       .then((response) => {
         // console.log('User data retrieved:', response.data);
@@ -26,6 +26,8 @@ export function UserContextProvider({ children }) {
         setIsLoading(false)
       });
   }
+
+
   useEffect(() => {
     if (!user) {
       const token = getCookie("token");
@@ -47,9 +49,11 @@ export function UserContextProvider({ children }) {
       console.error('Logout failed:', error);
     }
   };
+
   if (isLoading) {
     return <div>Loading...</div>
   }
+
   return (
     <UserContext.Provider value={{ user, setUser, logout, isLoading }}>
       {children}

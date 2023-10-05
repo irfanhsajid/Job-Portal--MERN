@@ -35,11 +35,11 @@ const ManageJobs = () => {
             })
     }, [])
 
-    const DeleteJobs = async (_id) => {
+    const deleteJob = async (_id) => {
         try {
-            const confirmed = window.confirm("Are You Sure to Delete Entire Category? Rather you can Edit Category Name And Job Title!");
+            const confirmed = window.confirm("Are You Sure to Delete Entire Category? Rather You can Edit JOB Name And Title!");
             if (confirmed) {
-                const response = await axios.delete(`/deleteJobs/${_id}`);
+                const response = await axios.delete(`/deleteJob/${_id}`);
                 if (response.status === 200) {
                     setData(response.data)
                     toast.success("Data Deleted Successfully");
@@ -58,12 +58,8 @@ const ManageJobs = () => {
                     return (
                         <div key={item._id} style={divStyle}>
                             <p style={{ fontWeight: 'bolder', color: '#182F59' }}>{item.category} </p>
-
-
                             <Link to={`/editjobs/${item._id}`}><button style={{ ...buttonStyle, background: '#5BBC2E' }}>Edit</button></Link>
-
-
-                            <button onClick={() => DeleteJobs(item._id)} style={{ ...buttonStyle, background: '#FF4A84' }}>Delete</button>
+                            <button onClick={() => deleteJob(item._id)} style={{ ...buttonStyle, background: '#FF4A84' }}>Delete</button>
                         </div>
                     )
                 }) : null

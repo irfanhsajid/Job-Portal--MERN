@@ -3,14 +3,16 @@ import 'boxicons';
 import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
+
 const Navbar = () => {
+
   const linkStyle = {
     textDecoration: 'none',
-    color: 'white', // Set the text color
-    margin: '0 10px', // Add some spacing between the links
-    padding: '5px 10px', // Add padding to the links
-    borderRadius: '5px', // Add rounded corners to the links
-    transition: 'background-color 0.3s', // Add a smooth transition for background color
+    color: 'white',
+    margin: '0 10px',
+    padding: '5px 10px',
+    borderRadius: '5px',
+    transition: 'background-color 0.3s',
   };
   const navStyle = {
     display: 'flex',
@@ -59,7 +61,6 @@ const Navbar = () => {
 
   return (
     <div>
-      { /*The code is creating a navigation bar component using React. */}
       <nav style={navStyle} >
         <Link style={linkStyle} to='/'> <span style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>TechForing </span> </Link>
         {
