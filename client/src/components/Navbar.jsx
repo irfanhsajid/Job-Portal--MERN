@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <div>
       <nav style={navStyle} >
-        <Link style={linkStyle} to='/'> <span
+        <Link style={linkStyle} > <span
           style={{
             fontWeight: 'bold',
             fontSize: '1.25rem',
