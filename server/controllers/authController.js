@@ -106,11 +106,11 @@ const getProfile = async (req, res) => {
       res.json({ user, token })
       console.log({ user, token });
     } else {
-      res.json(null);
+      res.json({ message: "Token not found!" });
     }
   } catch (err) {
     console.error('Error verifying token:', err);
-    res.json(null);
+    res.json({ message: "Something went wrong!" });
   }
 }
 

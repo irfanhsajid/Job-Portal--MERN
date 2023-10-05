@@ -23,7 +23,7 @@ const JobPortal = () => {
     useEffect(() => {
         axios.get('/viewJobs')
             .then(response => {
-                setData(response.data);
+                setData(response?.data);
             })
     }, [])
     // console.log(data);
