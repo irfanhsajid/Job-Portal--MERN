@@ -36,7 +36,16 @@
 axios.defaults.baseURL='https://auth-skeleton-api.vercel.app';
 axios.defaults.withCredentials = true;
 ```
-5. Now go to server side code and make cors origin : " ",
+5. Also add verce.json file to the root directory of your React App to fix react router reload issue 
+
+```js
+{
+  "rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
+  ]
+}
+```
+6. Now go to server side code and make cors origin : " ",
 ```js
 router.use(
     cors({
@@ -45,9 +54,9 @@ router.use(
     })
 )
 ```
-6. deploy your React APP and it will be successfully deoployed 
+7. deploy your React APP and it will be successfully deoployed 
 
-7. go to your server again and update the cors origin with deployed react-app URL
+8. go to your server again and update the cors origin with deployed react-app URL
 
 ```js
 router.use(
