@@ -5,7 +5,7 @@ import { UserContext } from '../context/userContext';
 
 
 const Dashboard = () => {
-  const { user, isLoading } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
   // useEffect(() => {
   //   // Fetch user profile data when the component mounts
@@ -37,9 +37,6 @@ const Dashboard = () => {
     marginRight: '10px'
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
