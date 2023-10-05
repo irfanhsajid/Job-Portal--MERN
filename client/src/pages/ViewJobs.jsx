@@ -10,6 +10,7 @@ import {
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useContext, useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import bd from '../assets/images/bd.svg';
 import india from '../assets/images/in.svg';
 import { UserContext } from "../context/userContext";
@@ -39,14 +40,24 @@ const JobPortal = () => {
         return (
             <div>
                 <br />
-                <Typography sx={{ fontWeight: 'bold', fontSize: '18px', textAlign: 'center' }}
+                <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
+                    Go Back
+                </Link>
+                <Typography sx={{ fontWeight: 'bold', fontSize: '1.2rem', textAlign: 'center' }}
                 >BROWSE OPEN POSITIONS BY CATEGORY</Typography>
                 <Typography sx={{ color: 'black', textAlign: 'center', marginBottom: '30px', fontSize: '17px' }}>We are always on the lookout for talented people </Typography>
                 {
                     data.map(item => {
                         return (
-                            <section key={item._id} style={{ margin: '0 auto', width: '55%' }}>
-                                <Accordion sx={{ background: 'whitesmoke', padding: '7px', margin: '20px auto', border: '.1px solid gray' }} expanded={expanded == item._id.toString()} onChange={handleChange(item._id.toString())}>
+                            <Box key={item._id}
+                                sx={{
+                                    margin: '0 auto', width: '60%',
+                                    '@media (max-width: 780px)': {
+                                        width: '90%',
+                                    }
+
+                                }}>
+                                <Accordion sx={{ background: 'whitesmoke', padding: '7px', margin: '10px auto', border: '.1px solid lightgray' }} expanded={expanded == item._id.toString()} onChange={handleChange(item._id.toString())}>
                                     <AccordionSummary
                                         expandIcon={<AddIcon fontSize='large' />}
                                         aria-controls={`${item._id}bh-content`}
@@ -355,7 +366,7 @@ const JobPortal = () => {
 
                                     </AccordionDetails>
                                 </Accordion>
-                            </section>
+                            </Box>
                         )
                     })
                 }

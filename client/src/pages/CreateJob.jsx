@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './register.module.css';
 
 const CreateJob = () => {
@@ -42,8 +42,12 @@ const CreateJob = () => {
 
     return (
         <div className={styles.container}>
+            <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
+                Go Back
+            </Link>
+            <h1 style={{ textAlign: 'center', fontSize: '1.4rem', marginTop: '10px' }}>Create Job by Category and Set Job Positions</h1>
             <form action="" className={styles.form} onSubmit={createJobs}>
-                <label>Category:</label>
+                <label>Category Name:</label>
                 <input
                     type="text"
                     name="category"

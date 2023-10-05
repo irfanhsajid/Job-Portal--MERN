@@ -1,70 +1,93 @@
-## MERN APP deployment steps on Vercel: 
+# MERN Job Portal
 
-1. sign in to vercel > configure github > import git repository
+Brief description of the project.
 
-2. go to server files > add verce.json and update server git repo
+## How to run this?
 
- ```json
- {
-    "version":2,
-     "builds": [
-         { 
-         "src":"*.js",
-         "use":"@vercel/node"
-         }
-    ],
+These instructions will help you set up and run the project on your local machine.
 
-    "routes" : [
-        {
-            "src":"/(.*)",
-            "dest":"/"
-        }
-      ]
-    }
-```
+### Prerequisites
 
-3. * go to vercel and choose git repo (server),
-   *  put all the .env values (if required) >>
-   * press Deploy! 
- after successfully deployment, copy the URL(example: https://auth-skeleton-api.vercel.app
- )  
+- Node.js and npm should be installed on your machine.
 
-4. * go to client side (React app) 
-   * open app.jsx code and update your cors origin with the server-side vercel api (copied URL ) like this 
-```js 
-//cors policy setup
-axios.defaults.baseURL='https://auth-skeleton-api.vercel.app';
-axios.defaults.withCredentials = true;
-```
-5. Also add verce.json file to the root directory of your React App to fix react router reload issue 
+### Cloning and Setup
 
+1. Clone the Git repository:
+
+    ```bash
+    git clone https://github.com/irfanhsajid/Job-Portal--MERN.git
+    ```
+
+2. Navigate to the cloned directory:
+
+    ```bash
+    cd Job-Portal--MERN
+    ```
+
+3. Set up the React app:
+
+    ```bash
+    cd client
+    npm install 
+    or yarn add
+    ```
+
+4. Set up the Express app:
+
+    ```bash
+    cd server
+    npm install
+    ```
+
+### Running the Apps
+
+In separate terminal windows, run the following commands:
+
+- For Vite React App:
+
+    ```bash
+    cd client
+    npm run dev
+    or yarn dev
+    ```
+
+- For Express App:
+
+    ```bash
+    cd server
+    nodemon
+    ```
+
+### Accessing the Apps
+
+- The Vite React app will be accessible at `http://localhost:5173`
+- The Express app will be accessible at `http://localhost:7000`
+#### .env Dependecy and CORS issue
+Though it supposed to fine, but he app will not run correctly because of Environment Variables Dependecy and CORS policy. So first of all open your server and make a .env file inside the root directory and set this:
 ```js
-{
-  "rewrites":  [
-    {"source": "/(.*)", "destination": "/"}
-  ]
-}
+MONGO_URL= mongodb+srv://mern-job-portal:447pxlwbgNx2LIY8@cluster0.vaopm.mongodb.net/mern-job-poral?retryWrites=true&w=majority
+JWT_SECRET = 474764dhk944
 ```
-6. Now go to server side code and make cors origin : " ",
+Then, fix the CORS origin issue. And For this: 
+
+* Open your React app, select App.jsx and change the origin url
+```js
+// axios.defaults.baseURL = 'https://auth-skeleton-api.vercel.app';
+axios.defaults.baseURL = 'http://localhost:7000';
+```
+* open your express app, select routes folder and set this origin inside the authRoutes.js and jobRoutes.js file
 ```js
 router.use(
     cors({
         credentials: true,
-        origin: " ",
+        origin: "http://localhost:5173",
+        // origin: "https://techforing-job-portal.vercel.app",
     })
 )
 ```
-7. deploy your React APP and it will be successfully deoployed 
+After doing all this, close your terminal and make a fresh start. Hope it will work fine! 
 
-8. go to your server again and update the cors origin with deployed react-app URL
+## Author
 
-```js
-router.use(
-    cors({
-        credentials: true,
-        origin: "https://auth-skeleton-frontend.vercel.app",
-    })
-)
-```
+[Irfanul Haque Sajid](https://www.linkedin.com/in/irfanhsajid)
 
-BOOM!!! You are done with the vercel deployment!

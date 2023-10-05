@@ -17,8 +17,7 @@ export function UserContextProvider({ children }) {
   const profileDataRetrive = async (token) => {
     console.log('Fetching user data...', token);
     try {
-      const response = await axios.get('/profile' + "?token=" + token);
-      // await axios.get('/profile')
+      const response = await axios.get('/profile' + "?token=" + token)
       if (response.status === 200) {
         console.log(response.data.user)
         setUser(response.data.user);
@@ -42,29 +41,6 @@ export function UserContextProvider({ children }) {
   }, [user]);
   console.log(user);
 
-
-  // Fetch user profile data when the component mounts
-  // const fetchUserProfile = async () => {
-  //   try {
-  //     const response = await axios.get('/profile' + "?token=" + token);
-  //     const userProfile = response?.data?.user;
-  //     userProfile && setUser();
-
-  //   } catch (error) {
-  //     console.error('Error fetching user profile:', error);
-  //   }
-  // };
-
-
-
-  // useEffect(() => {
-  //   if (!user) {
-  //     fetchUserProfile();
-  //     setIsLoading(false)
-  //   }
-  // }, [user])
-  // console.log(user)
-  // Function to log the user out
   const logout = async () => {
     try {
       await axios.post('/logout');
@@ -77,9 +53,6 @@ export function UserContextProvider({ children }) {
     }
   };
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>
-  // }
   return (
     <UserContext.Provider value={{ user, setUser, logout, isLoading, setIsLoading }}>
       {children}

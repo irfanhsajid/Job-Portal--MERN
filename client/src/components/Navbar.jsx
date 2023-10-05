@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 
+
 const Navbar = () => {
 
   const linkStyle = {
@@ -11,15 +12,19 @@ const Navbar = () => {
     margin: '0 10px',
     padding: '5px 10px',
     borderRadius: '5px',
-    transition: 'background-color 0.3s',
+    transition: 'background-color 0.3s'
   };
+
   const navStyle = {
     display: 'flex',
     justifyContent: 'space-between',
     backgroundColor: '#182F59',
     padding: '20px',
     alignItems: 'center',
+    width: '100%',
+
   };
+
   const buttonStyle = {
     color: 'whitesmoke',
     backgroundColor: '#5BBC2E',
@@ -30,43 +35,31 @@ const Navbar = () => {
     letterSpacing: '1px',
     cursor: 'pointer',
     marginRight: '10px'
-  }
+  };
+
 
   const { user, logout } = useContext(UserContext)
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   // Fetch user profile data when the component mounts
-  //   const fetchUserProfile = async () => {
-  //     try {
-  //       const response = await axios.get('/profile');
-  //       const userData = response.data;
-  //       setUser(userData);
-  //     } catch (error) {
-  //       console.error('Error fetching user profile:', error);
-  //     }
-  //   };
-  //   // Call the function to fetch user profile
-  //   if (!user) {
-  //     fetchUserProfile();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [user]);
-  // console.log(user)
+
   const handleLogout = async () => {
     logout();
     navigate('/');
   }
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>
-  // }
-
-  console.log(user);
+  //console.log(user);
 
   return (
     <div>
       <nav style={navStyle} >
-        <Link style={linkStyle} to='/'> <span style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>TechForing </span> </Link>
+        <Link style={linkStyle} to='/'> <span
+          style={{
+            fontWeight: 'bold',
+            fontSize: '1.25rem',
+            '@media (max-width:700px)': {
+              fontSize: '.7rem',
+              color: 'red'
+            }
+          }}>TechForing </span> </Link>
         {
           !user && (
             <div>
@@ -86,7 +79,9 @@ const Navbar = () => {
         }
 
         {
-          user && (<button style={buttonStyle} onClick={handleLogout}>Logout</button>)
+          user && (<button style={{
+            ...buttonStyle, marginRight: '4%'
+          }} onClick={handleLogout}>Logout</button>)
         }
       </nav>
     </div>

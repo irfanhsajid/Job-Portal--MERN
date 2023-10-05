@@ -44,7 +44,7 @@ const Register = () => {
 
     return (
         <div className={styles.container}>
-            <h1 style={{ textAlign: 'center' }}>Register First To Explore Features</h1>
+            <h1 style={{ textAlign: 'center', fontSize: '1.4rem', marginTop: '20px' }}>Register First To Explore Features</h1>
             <form action="
             " className={styles.form} onSubmit={registerUser}>
                 <label>Name:</label>

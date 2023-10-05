@@ -37,7 +37,7 @@ const ManageJobs = () => {
 
     const deleteJob = async (_id) => {
         try {
-            const confirmed = window.confirm("Are You Sure to Delete Entire Category? Rather You can Edit JOB Name And Title!");
+            const confirmed = window.confirm("Are You Sure to Delete Entire Category?\nRather you can select Edit option and update Jobs eperately. \nPress OK will delete the entire category.");
             if (confirmed) {
                 const response = await axios.delete(`/deleteJob/${_id}`);
                 if (response.status === 200) {
@@ -51,19 +51,27 @@ const ManageJobs = () => {
     }
     return (
 
-        <div style={{ margin: "0 auto", background: 'whitesmoke', width: '700px', padding: '10px', marginTop: '100px', boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)' }}>
-            <h2 style={{ textAlign: 'center' }}>{data.length} Category Of JOBS Available</h2>
-            {
-                data.length ? data.map(item => {
-                    return (
-                        <div key={item._id} style={divStyle}>
-                            <p style={{ fontWeight: 'bolder', color: '#182F59' }}>{item.category} </p>
-                            <Link to={`/editjobs/${item._id}`}><button style={{ ...buttonStyle, background: '#5BBC2E' }}>Edit</button></Link>
-                            <button onClick={() => deleteJob(item._id)} style={{ ...buttonStyle, background: '#FF4A84' }}>Delete</button>
-                        </div>
-                    )
-                }) : null
-            }
+        <div>
+            <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
+                Go Back
+            </Link>
+            <h1 style={{ textAlign: 'center', fontSize: '1.3rem', marginTop: '10px' }}>Edit Category & Positions Seperately <br /> Or Delete Entire Job Category!</h1>
+            <div style={{ margin: "0 auto", background: 'whitesmoke', width: '700px', padding: '10px', marginTop: '30px', boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)' }}>
+
+                <h2 style={{ textAlign: 'center' }}> <span style={{ color: 'red' }}>
+                    ({data.length})</span>  Category Of JOBS Available!</h2>
+                {
+                    data.length ? data.map(item => {
+                        return (
+                            <div key={item._id} style={divStyle}>
+                                <p style={{ fontWeight: 'bolder', color: '#182F59' }}>{item.category} </p>
+                                <Link to={`/editjobs/${item._id}`}><button style={{ ...buttonStyle, background: '#5BBC2E' }}>Edit</button></Link>
+                                <button onClick={() => deleteJob(item._id)} style={{ ...buttonStyle, background: '#FF4A84' }}>Delete</button>
+                            </div>
+                        )
+                    }) : null
+                }
+            </div>
         </div>
     );
 };

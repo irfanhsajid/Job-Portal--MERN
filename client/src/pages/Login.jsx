@@ -43,8 +43,6 @@ const Login = () => {
                 setUser(response.data.user);
                 navigate('/viewJobs')
                 toast.success("Login Successful!")
-                //window.location.reload();
-                // console.log("login success")
             }
 
         } catch (error) {
@@ -52,13 +50,14 @@ const Login = () => {
         }
 
     }
-    // if (isLoading) {
-    //     return <div>Loading...</div>
-    // }
+
 
     return (
         <div className={styles.container}>
-            <h1 style={{ textAlign: 'center' }}>Login to Acess Your Job Portal</h1>
+            <h1 style={{ textAlign: 'center', fontSize: '1.3rem', marginTop: '20px' }}>
+                Assalamu Alaikum <span style={{ color: '#C12048' }}>*,*</span>
+            </h1>
+            <h1 style={{ textAlign: 'center', fontSize: '1.3rem', marginTop: '20px' }}> Please, Sign In to Acess Our Job Portal</h1>
             <form action="
             " className={styles.form} onSubmit={loginUser}>
                 <label>Email:</label>
