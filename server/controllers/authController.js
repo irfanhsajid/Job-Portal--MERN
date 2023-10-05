@@ -81,7 +81,7 @@ const loginUser = async (req, res) => {
         (err, token) => {
           if (err) throw err;
           else res.cookie('token', token).json({ user, token }) //4th parameter
-          //console.log(token);
+          console.log(token);
         })
     }
 
@@ -99,12 +99,12 @@ const loginUser = async (req, res) => {
 //get profile info for client side session controlling
 const getProfile = async (req, res) => {
   const token = req.cookies.token;
-  // console.log(token);
+  console.log(token, "\n <---From Back");
   try {
     if (token) {
       const user = await jwt.verify(token, process.env.JWT_SECRET);
-      res.json(user);
-      // console.log(user);
+      res.json({ user, token })
+      console.log({ user, token });
     } else {
       res.json(null);
     }

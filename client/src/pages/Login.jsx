@@ -1,6 +1,5 @@
 
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +9,7 @@ import styles from './login.module.css';
 const Login = () => {
 
     const navigate = useNavigate();
-    const { setUser } = useContext(UserContext);
+    const { setUser, isLoading } = useContext(UserContext);
 
 
     const [data, setData] = useState({
@@ -28,7 +27,7 @@ const Login = () => {
                 email,
                 password,
             })
-            console.log(response);
+            console.log(response.data);
 
             //setting up the validation and error message
             if (!response.data.token) {
@@ -38,11 +37,12 @@ const Login = () => {
             //if everything works fine
             else {
                 setData({});
-                Cookies.set('token', response.data.token, { expires: 1000 })
+                // setCookie('token', response.data.token)
                 //   console.log(response.data.token);
                 setUser(response.data.user);
                 navigate('/viewJobs')
                 toast.success("Login Successful!")
+                //window.location.reload();
                 // console.log("login success")
             }
 
@@ -51,7 +51,9 @@ const Login = () => {
         }
 
     }
-
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
 
     return (
         <div className={styles.container}>

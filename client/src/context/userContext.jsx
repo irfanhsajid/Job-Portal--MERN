@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { deleteCookie, getCookie } from '../utils/cookies';
+import { deleteCookie } from '../utils/cookies';
 
 export const UserContext = createContext({})
 
@@ -14,33 +14,56 @@ export function UserContextProvider({ children }) {
 
 
   //get user data profile
-  const profileDataRetrive = async (token) => {
-    console.log('Fetching user data...', token);
-    await axios.get('/profile' + "?token=" + token)
-      // await axios.get('/profile')
-      .then((response) => {
-        console.log('User data retrieved:', response.data);
-        response.data && setUser(response.data);
-        setIsLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching user data:', error);
-        setIsLoading(false)
-      });
-  }
+  // const profileDataRetrive = async (token) => {
+  //   console.log('Fetching user data...', token);
+  //   await axios.get('/profile' + "?token=" + token)
+  //     // await axios.get('/profile')
+  //     .then((response) => {
+  //       console.log('User data retrieved:', response.data);
+  //       response.data && setUser(response.data);
+  //       setIsLoading(false)
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching user data:', error);
+  //       setIsLoading(false)
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   if (!user) {
+  //     const token = getCookie("token");
+  //     if (token) {
+  //       profileDataRetrive(token)
+  //     }
+  //     setUser(user);
+  //   }
+  // }, [user]);
+  // console.log(user);
+
+
+  // Fetch user profile data when the component mounts
+  const fetchUserProfile = async () => {
+    try {
+      const response = await axios.get('/profile');
+      console.log(response, "<---Context")
+      const userProfile = response.data.user;
+      setUser(userProfile);
+      console.log(userProfile);
+
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+  };
+
+
 
   useEffect(() => {
     if (!user) {
-      const token = getCookie("token");
-      if (token) {
-        profileDataRetrive(token)
-      }
-      setUser(user);
+      fetchUserProfile();
+      setIsLoading(false)
     }
-  }, [user]);
-
-  console.log(user);
-
+  }, [user])
+  console.log(user)
   // Function to log the user out
   const logout = async () => {
     try {

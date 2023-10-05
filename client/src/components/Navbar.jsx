@@ -1,6 +1,5 @@
-import axios from 'axios';
 import 'boxicons';
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 
@@ -33,31 +32,36 @@ const Navbar = () => {
     marginRight: '10px'
   }
 
-  const { user, logout, setUser } = useContext(UserContext)
+  const { user, logout } = useContext(UserContext)
   const navigate = useNavigate();
-  useEffect(() => {
-    // Fetch user profile data when the component mounts
-    const fetchUserProfile = async () => {
-      try {
-        const response = await axios.get('/profile');
-        const userData = response.data;
-        setUser(userData);
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-      }
-    };
-    // Call the function to fetch user profile
-    if (!user) {
-      fetchUserProfile();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-
+  // useEffect(() => {
+  //   // Fetch user profile data when the component mounts
+  //   const fetchUserProfile = async () => {
+  //     try {
+  //       const response = await axios.get('/profile');
+  //       const userData = response.data;
+  //       setUser(userData);
+  //     } catch (error) {
+  //       console.error('Error fetching user profile:', error);
+  //     }
+  //   };
+  //   // Call the function to fetch user profile
+  //   if (!user) {
+  //     fetchUserProfile();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [user]);
+  // console.log(user)
   const handleLogout = async () => {
     logout();
     navigate('/');
   }
 
+  // if (isLoading) {
+  //   return <div>Loading...</div>
+  // }
+
+  console.log(user);
 
   return (
     <div>
