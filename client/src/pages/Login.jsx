@@ -12,6 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext);
 
+
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -27,7 +28,7 @@ const Login = () => {
                 email,
                 password,
             })
-            //console.log(response);
+            console.log(response);
 
             //setting up the validation and error message
             if (!response.data.token) {
@@ -40,7 +41,7 @@ const Login = () => {
                 Cookies.set('token', response.data.token, { expires: 1000 })
                 //   console.log(response.data.token);
                 setUser(response.data.user);
-                navigate('/dashboard')
+                navigate('/viewJobs')
                 toast.success("Login Successful!")
                 // console.log("login success")
             }
@@ -50,6 +51,7 @@ const Login = () => {
         }
 
     }
+
 
     return (
         <div className={styles.container}>

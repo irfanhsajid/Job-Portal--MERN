@@ -38,6 +38,10 @@ const Dashboard = () => {
     marginRight: '10px'
   }
 
+  // if (isLoading) {
+  //   return <div>Loading...</div>
+  // }
+
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
 
@@ -45,9 +49,9 @@ const Dashboard = () => {
 
       <h3>Welcome to TechForing`s Job Portal! </h3>
 
-      <Link to='/viewjobs'><button style={{ ...buttonStyle, background: '#00C1FF' }}> View Jobs</button></Link>
-      <Link to='/createjobs'><button style={{ ...buttonStyle, background: '#3AF173' }}>Create Jobs</button></Link>
-      <Link to='/managejobs'><button style={{ ...buttonStyle, background: '#D935FF' }} >Edit Jobs</button></Link>
+      {/* <Link to='/viewjobs'><button style={{ ...buttonStyle, background: '#00C1FF' }}> View Jobs</button></Link> */}
+      <Link to='/createjobs'><button style={{ ...buttonStyle, background: ' #3AF173' }}>Create Jobs</button></Link>
+      <Link to='/managejobs'><button style={{ ...buttonStyle, background: '#D14471' }} >Edit Jobs</button></Link>
     </div>
   );
 };

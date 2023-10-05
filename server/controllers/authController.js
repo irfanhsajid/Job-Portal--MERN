@@ -1,10 +1,12 @@
 const User = require('../models/user');
+// const cookieParser = require('cookie-parser');
 const { hashPassword, comparePassword } = require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 
 const test = (req, res) => {
   res.send("Server test is succeed!");
 }
+
 
 //register Endpoint
 const registerUser = async (req, res) => {
@@ -60,7 +62,7 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email);
+    // console.log(email);
     //check if user exists
     const user = await User.findOne({ email });
     if (!user) {
@@ -79,6 +81,7 @@ const loginUser = async (req, res) => {
         (err, token) => {
           if (err) throw err;
           else res.cookie('token', token).json({ user, token }) //4th parameter
+          //console.log(token);
         })
     }
 
@@ -95,16 +98,22 @@ const loginUser = async (req, res) => {
 
 //get profile info for client side session controlling
 const getProfile = async (req, res) => {
-  const token = req.query.token;
-  //console.log(req.query, "<---")
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
-      if (err) throw err;
-      else res.json(user);
-    })
+  const token = req.cookies.token;
+  // console.log(token);
+  try {
+    if (token) {
+      const user = await jwt.verify(token, process.env.JWT_SECRET);
+      res.json(user);
+      // console.log(user);
+    } else {
+      res.json(null);
+    }
+  } catch (err) {
+    console.error('Error verifying token:', err);
+    res.json(null);
   }
-  else res.json(null);
 }
+
 
 //logout the user 
 const logoutUser = async (req, res) => {

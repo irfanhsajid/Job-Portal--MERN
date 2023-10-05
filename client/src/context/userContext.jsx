@@ -12,14 +12,16 @@ export function UserContextProvider({ children }) {
 
   const [isLoading, setIsLoading] = useState(true); // Add isLoading state
 
+
   //get user data profile
   const profileDataRetrive = async (token) => {
-    // console.log('Fetching user data...', token);
+    console.log('Fetching user data...', token);
     await axios.get('/profile' + "?token=" + token)
+      // await axios.get('/profile')
       .then((response) => {
-        // console.log('User data retrieved:', response.data);
+        console.log('User data retrieved:', response.data);
         response.data && setUser(response.data);
-        response.data && setIsLoading(false)
+        setIsLoading(false)
       })
       .catch((error) => {
         console.error('Error fetching user data:', error);
@@ -27,15 +29,17 @@ export function UserContextProvider({ children }) {
       });
   }
 
-
   useEffect(() => {
     if (!user) {
       const token = getCookie("token");
-      token ? profileDataRetrive(token) : null;
+      if (token) {
+        profileDataRetrive(token)
+      }
+      setUser(user);
     }
   }, [user]);
 
-  // console.log(user);
+  console.log(user);
 
   // Function to log the user out
   const logout = async () => {
@@ -50,13 +54,13 @@ export function UserContextProvider({ children }) {
     }
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
+  // if (isLoading) {
+  //   return <div>Loading...</div>
+  // }
   return (
-    <UserContext.Provider value={{ user, setUser, logout, isLoading }}>
+    <UserContext.Provider value={{ user, setUser, logout, isLoading, setIsLoading }}>
       {children}
     </UserContext.Provider>
   )
+
 }
