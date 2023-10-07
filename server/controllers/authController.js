@@ -8,7 +8,7 @@ const test = (req, res) => {
 }
 
 
-//register Endpoint
+//register endpoint starts
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -58,6 +58,7 @@ const registerUser = async (req, res) => {
 };
 // Register Endpoint Ends 
 
+
 //login endpoint Starts
 const loginUser = async (req, res) => {
   try {
@@ -92,17 +93,18 @@ const loginUser = async (req, res) => {
     console.log(error)
   }
 };
+//login endpoint ends
 
 
 //get profile info for client side session controlling
 const getProfile = (req, res) => {
   const token = req.query.token;
-  console.log(token, "<---From Back");
+  //console.log(token, "<---From Back");
   try {
     if (token) {
       const user = jwt.verify(token, process.env.JWT_SECRET);
       res.json({ user, token })
-      console.log({ user, token });
+      // console.log({ user, token });
     } else {
       res.json({ message: "Token not found!" });
     }
