@@ -35,7 +35,7 @@ const JobPortal = () => {
         setExpanded(isExpanded ? panel : false);
     };
     if (!user) {
-        return <CircularProgress variant="soft" />
+        return <CircularProgress sx={{ display: 'flex', width: '100%', margin: '0 auto', margintTop: '20px' }} color="success" />
     } else {
         return (
             <div>

@@ -59,7 +59,7 @@ const Login = () => {
             </h1>
             <h1 style={{ textAlign: 'center', fontSize: '1.3rem', marginTop: '20px' }}> Please, Sign In to Acess Our Job Portal</h1>
             <form action="
-            " className={styles.form} onSubmit={loginUser}>
+                " className={styles.form} onSubmit={loginUser}>
                 <label>Email:</label>
                 <input type="email" name="email" value={data.email} id="email"
                     placeholder="Your E-mail Here..."
@@ -73,6 +73,7 @@ const Login = () => {
             </form>
         </div>
     );
+
 };
 
 export default Login;
