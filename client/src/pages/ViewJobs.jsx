@@ -38,7 +38,9 @@ const JobPortal = () => {
         return <CircularProgress sx={{ display: 'flex', width: '100%', margin: '0 auto', margintTop: '20px' }} color="success" />
     } else {
         return (
-            <div>
+            <div data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="800">
                 <br />
                 <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
                     Go Back
@@ -53,11 +55,11 @@ const JobPortal = () => {
                                 sx={{
                                     margin: '0 auto', width: '60%',
                                     '@media (max-width: 780px)': {
-                                        width: '90%',
+                                        width: '92%',
                                     }
 
                                 }}>
-                                <Accordion sx={{ background: 'whitesmoke', padding: '7px', margin: '10px auto', border: '.1px solid lightgray' }} expanded={expanded == item._id.toString()} onChange={handleChange(item._id.toString())}>
+                                <Accordion sx={{ background: 'whitesmoke', padding: '1%', margin: '10px auto', border: '.1px solid lightgray' }} expanded={expanded == item._id.toString()} onChange={handleChange(item._id.toString())}>
                                     <AccordionSummary
                                         expandIcon={<AddIcon fontSize='large' />}
                                         aria-controls={`${item._id}bh-content`}
@@ -82,7 +84,7 @@ const JobPortal = () => {
                                                 background: 'white',
                                                 borderRadius: '5px',
                                                 '&:hover': {
-                                                    background: '#b8cffa',
+                                                    background: '#EEF1FF',
                                                     outline: '.1px solid gray',
                                                     '& button': {
                                                         background: '#182F59',
@@ -97,18 +99,18 @@ const JobPortal = () => {
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     '& button': {
-                                                        height: '2rem',
+                                                        height: '95%',
                                                         marginTop: '5px'
                                                     }
 
                                                 }
                                             }}>
-                                                <Typography>
+                                                <Typography >
                                                     {item.positions.role1}
                                                 </Typography>
                                                 <Button sx={{
                                                     width: '10rem',
-                                                    height: '2.3rem',
+                                                    height: '95%',
                                                     boxShadow: '1px 2px 2px 1px lightgray'
 
                                                 }}>
@@ -131,7 +133,7 @@ const JobPortal = () => {
                                                 background: 'white',
                                                 borderRadius: '5px',
                                                 '&:hover': {
-                                                    background: '#b8cffa',
+                                                    background: '#EEF1FF',
                                                     outline: '.1px solid gray',
                                                     transition: 'background .7s ease-in-out, border .7s',
                                                     '& button': {
@@ -147,7 +149,7 @@ const JobPortal = () => {
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     '& button': {
-                                                        height: '2rem',
+                                                        height: '95%',
                                                         marginTop: '5px'
                                                     }
                                                 }
@@ -157,7 +159,7 @@ const JobPortal = () => {
                                                 </Typography>
                                                 <Button sx={{
                                                     width: '10rem',
-                                                    height: '2.3rem',
+                                                    height: '95%',
                                                     boxShadow: '1px 2px 2px 1px lightgray'
 
                                                 }}>
@@ -179,7 +181,7 @@ const JobPortal = () => {
                                                 background: 'white',
                                                 borderRadius: '5px',
                                                 '&:hover': {
-                                                    background: '#b8cffa',
+                                                    background: '#EEF1FF',
                                                     outline: '.1px solid gray',
                                                     transition: 'background .7s ease-in-out, border .7s',
                                                     '& button': {
@@ -195,7 +197,7 @@ const JobPortal = () => {
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     '& button': {
-                                                        height: '2rem',
+                                                        height: '95%',
                                                         marginTop: '5px'
                                                     }
                                                 }
@@ -205,7 +207,7 @@ const JobPortal = () => {
                                                 </Typography>
                                                 <Button sx={{
                                                     width: '10rem',
-                                                    height: '2.3rem',
+                                                    height: '95%',
                                                     boxShadow: '1px 2px 2px 1px lightgray'
 
                                                 }}>
@@ -228,7 +230,7 @@ const JobPortal = () => {
                                                 background: 'white',
                                                 borderRadius: '5px',
                                                 '&:hover': {
-                                                    background: '#b8cffa',
+                                                    background: '#EEF1FF',
                                                     outline: '.1px solid gray',
                                                     transition: 'background .7s ease-in-out, border .7s',
                                                     '& button': {
@@ -244,7 +246,7 @@ const JobPortal = () => {
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     '& button': {
-                                                        height: '2rem',
+                                                        height: '95%',
                                                         marginTop: '5px'
                                                     }
                                                 }
@@ -254,13 +256,13 @@ const JobPortal = () => {
                                                 </Typography>
                                                 <Button sx={{
                                                     width: '10rem',
-                                                    height: '2.3rem',
+                                                    height: '95%',
                                                     boxShadow: '1px 2px 2px 1px lightgray'
 
                                                 }}>
                                                     Apply Now
                                                     <img style={{ display: 'inline-block', verticalAlign: 'middle', width: '22px', height: '20px', marginLeft: '7px' }} src={bd} alt="" />
-                                                    <img style={{ display: 'inline-block', verticalAlign: 'middle', width: '22px', height: '20px', marginLeft: '7px' }} src={india} alt="" />
+
                                                 </Button>
                                             </Box>
                                         }
@@ -277,7 +279,7 @@ const JobPortal = () => {
                                                 background: 'white',
                                                 borderRadius: '5px',
                                                 '&:hover': {
-                                                    background: '#b8cffa',
+                                                    background: '#EEF1FF',
                                                     outline: '.1px solid gray',
                                                     transition: 'background .7s ease-in-out, border .7s',
                                                     '& button': {
@@ -293,7 +295,7 @@ const JobPortal = () => {
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     '& button': {
-                                                        height: '2rem',
+                                                        height: '95%',
                                                         marginTop: '5px'
                                                     }
                                                 }
@@ -303,7 +305,7 @@ const JobPortal = () => {
                                                 </Typography>
                                                 <Button sx={{
                                                     width: '10rem',
-                                                    height: '2.3rem',
+                                                    height: '95%',
                                                     boxShadow: '1px 2px 2px 1px lightgray'
 
                                                 }}>
@@ -326,7 +328,7 @@ const JobPortal = () => {
                                                 background: 'white',
                                                 borderRadius: '5px',
                                                 '&:hover': {
-                                                    background: '#b8cffa',
+                                                    background: '#EEF1FF',
                                                     outline: '.1px solid gray',
                                                     transition: 'background .7s ease-in-out, border .7s',
                                                     '& button': {
@@ -342,7 +344,7 @@ const JobPortal = () => {
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     '& button': {
-                                                        height: '2rem',
+                                                        height: '95%',
                                                         marginTop: '5px'
                                                     }
                                                 }
@@ -352,7 +354,7 @@ const JobPortal = () => {
                                                 </Typography>
                                                 <Button sx={{
                                                     width: '10rem',
-                                                    height: '2.3rem',
+                                                    height: '95%',
                                                     boxShadow: '1px 2px 2px 1px lightgray'
 
                                                 }}>
@@ -370,9 +372,6 @@ const JobPortal = () => {
                         )
                     })
                 }
-                <br />
-                <br />
-
             </div>
         );
     }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import styles from './register.module.css';
+import styles from '../assets/css/register.module.css';
 const Register = () => {
 
     const [data, setData] = useState({
@@ -43,7 +43,10 @@ const Register = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div data-aos="flip-left"
+            data-aos-easing="linear"
+            data-aos-duration="300"
+            className={styles.container}>
             <h1 style={{ textAlign: 'center', fontSize: '1.4rem', marginTop: '20px' }}>Register First To Explore Features</h1>
             <form action="
             " className={styles.form} onSubmit={registerUser}>

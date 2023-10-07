@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import styles from '../assets/css/register.module.css';
 
 const buttonStyle = {
     // backgroundColor: 'tomato',
@@ -12,17 +13,6 @@ const buttonStyle = {
     cursor: 'pointer',
     marginRight: '10px'
 }
-const divStyle = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    placeItems: 'center',
-    border: '1px solid #182F59',
-    padding: '.3rem',
-    margin: '1rem',
-    borderRadius: '8px'
-
-}
-
 
 const ManageJobs = () => {
 
@@ -51,21 +41,31 @@ const ManageJobs = () => {
     }
     return (
 
-        <div>
+        <div data-aos="zoom-out"
+            data-aos-easing="linear"
+            data-aos-duration="300">
             <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
                 Go Back
             </Link>
             <h1 style={{ textAlign: 'center', fontSize: '1.3rem', marginTop: '10px' }}>Edit Category & Positions Seperately <br /> Or Delete Entire Job Category!</h1>
-            <div style={{ margin: "0 auto", background: 'whitesmoke', width: '700px', padding: '10px', marginTop: '30px', boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)' }}>
+
+            <div
+                style={{ margin: "0 auto", background: 'whitesmoke', width: '70%', padding: '10px', marginTop: '30px', boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)' }}>
 
                 <h2 style={{ textAlign: 'center' }}> <span style={{ color: 'red' }}>
                     ({data.length})</span>  Category Of JOBS Available!</h2>
                 {
                     data.length ? data.map(item => {
                         return (
-                            <div key={item._id} style={divStyle}>
+                            <div
+                                key={item._id}
+                                className={styles.manageJobs_container}
+                            >
+
                                 <p style={{ fontWeight: 'bolder', color: '#182F59' }}>{item.category} </p>
+
                                 <Link to={`/editjobs/${item._id}`}><button style={{ ...buttonStyle, background: '#5BBC2E' }}>Edit</button></Link>
+
                                 <button onClick={() => deleteJob(item._id)} style={{ ...buttonStyle, background: '#FF4A84' }}>Delete</button>
                             </div>
                         )

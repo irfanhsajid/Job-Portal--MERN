@@ -1,8 +1,8 @@
 import 'boxicons';
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import styles from '../assets/css/navbar.module.css';
 import { UserContext } from "../context/userContext";
-import styles from './navbar.module.css';
 
 const buttonStyle = {
   color: 'whitesmoke',

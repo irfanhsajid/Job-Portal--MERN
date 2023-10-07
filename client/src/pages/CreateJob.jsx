@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './register.module.css';
+import styles from '../assets/css/register.module.css';
 
 const CreateJob = () => {
     const [data, setData] = useState({
@@ -41,7 +41,10 @@ const CreateJob = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div data-aos="flip-right"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+            className={styles.container}>
             <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
                 Go Back
             </Link>

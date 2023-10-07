@@ -20,7 +20,10 @@ const Dashboard = () => {
 
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <div data-aos="zoom-in"
+      data-aos-easing="linear"
+      data-aos-duration="300"
+      style={{ textAlign: 'center', marginTop: '50px' }}>
 
       {user && (<h1>Assalamu Alaikum <span style={{ color: '#C12048' }}>*,*</span> <br />  <span style={{ color: '#5BBC2E', fontSize: '20px' }}> Mr. {user?.name} </span>  </h1>)}
 

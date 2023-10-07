@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import styles from './register.module.css';
+import styles from '../assets/css/register.module.css';
 
 const EditJobs = () => {
 
@@ -60,13 +60,16 @@ const EditJobs = () => {
 
     return (
 
-        <div className={styles.container}>
+        <div data-aos="flip-left"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+            className={styles.container}>
             <Link style={{ textAlign: 'center', display: 'block', width: '20rem', margin: '0 auto', padding: '1rem' }} to='/dashboard'>
                 Go Back
             </Link>
-            <h1 style={{ textAlign: 'center', fontSize: '1.4rem', marginTop: '10px' }}>Update Category Name and Job Title / Position Role</h1>
+            <h1 style={{ textAlign: 'center', fontSize: '1.4rem', marginTop: '10px' }}>Updating Jobs for Category : [ <span style={{ color: '#D14471' }}>{data.category}</span> ]  </h1>
             <form action="" className={styles.form} onSubmit={updateJob} >
-                <label>Category:</label>
+                <label>Category Name:</label>
                 <input
                     type="text"
                     name="category"

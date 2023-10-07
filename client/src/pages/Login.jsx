@@ -3,9 +3,9 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import styles from '../assets/css/login.module.css';
 import { UserContext } from '../context/userContext';
 import { setCookie } from '../utils/cookies';
-import styles from './login.module.css';
 
 const Login = () => {
 
@@ -53,7 +53,10 @@ const Login = () => {
 
 
     return (
-        <div className={styles.container}>
+        <div data-aos="flip-right"
+            data-aos-easing="linear"
+            data-aos-duration="300"
+            className={styles.container}>
             <h1 style={{ textAlign: 'center', fontSize: '1.3rem', marginTop: '20px' }}>
                 Assalamu Alaikum <span style={{ color: '#C12048' }}>*,*</span>
             </h1>
