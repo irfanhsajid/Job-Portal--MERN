@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       <nav className={styles.navStyle} >
-        <Link className={styles.linkStyle} to='/'><span
+        <Link className={styles.linkStyle}><span
           className={styles.company_name}>TechForing </span> </Link>
         {
           !user && (
