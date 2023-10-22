@@ -33,7 +33,7 @@ const Register = () => {
             else {
                 setData({})
                 toast.success('Registration Succesful, Welcome!')
-                navigate('/login')
+                navigate('/dashboard')
             }
         } catch (error) {
             // Handle network errors or unexpected issues
